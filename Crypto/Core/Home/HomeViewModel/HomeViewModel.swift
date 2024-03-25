@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 
 class HomeViewModel : ObservableObject {
@@ -14,15 +15,23 @@ class HomeViewModel : ObservableObject {
     @Published var allCoins : [CoinModel] = []
     @Published var portfoiliCoins : [CoinModel] = []
     
+    let coinDataService : CoinDataService = CoinDataService()
+    
+    private var cancellables : Set<AnyCancellable> =  Set<AnyCancellable>()
+    
     
     init() {
         getCoins()
     }
     
     func getCoins() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.allCoins = [DeveloperPreview.instance.coin]
-        }
+        coinDataService.getAllCoins()
+        coinDataService.$allCoins
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] allCoins in
+                self?.allCoins = allCoins
+            }
+            .store(in: &cancellables)
     }
     
 }

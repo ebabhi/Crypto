@@ -22,6 +22,7 @@ struct HomeView: View {
             }else{
                 allCoins
             }
+            
             Spacer()
         }
     }
@@ -43,7 +44,6 @@ struct HomeView: View {
             Spacer()
             CircleButtonView(iconName: "chevron.right")
                 .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
-                .animation(.spring(), value: showPortfolio)
                 .onTapGesture {
                     withAnimation{
                         showPortfolio.toggle()
