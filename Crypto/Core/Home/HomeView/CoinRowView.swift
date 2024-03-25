@@ -11,20 +11,28 @@ struct CoinRowView: View {
     
     let coin : CoinModel
     
+    var showHoldings : Bool
+    
     var body: some View {
         HStack{
             Text("\(coin.rank)")
             Circle().frame(width: 45)
             Text(coin.symbol.uppercased(with: .autoupdatingCurrent))
-            Spacer()
-            VStack{
-                Text("\(coin.currentHoldingsValue.format(.currency))")
-                Text("\(((coin.priceChangePercentage24H ?? 0.0) / 100).format(.percent))")
+            if showHoldings {
+                Spacer()
+                VStack{
+                    Text("\(coin.currentHoldingsValue.format(.currency))")
+                    Text("\(((coin.priceChangePercentage24H ?? 0.0) / 100).format(.percent))")
+                }
             }
             Spacer()
             VStack(alignment:.trailing){
                 Text("\(coin.currentPrice.format(.currency))")
                 Text("\(((coin.priceChangePercentage24H ?? 0.0) / 100 ).format(.percent))")
+                    .foregroundStyle(
+                        (coin.priceChangePercentage24H ?? 0) <= 0 ?
+                        Color.theme.red :Color.theme.green )
+                
             }
         }
     }
@@ -32,6 +40,6 @@ struct CoinRowView: View {
 
 struct CoinRowProvider : PreviewProvider {
     static var previews: some View {
-        CoinRowView(coin: dev.coin)
+        CoinRowView(coin: dev.coin,showHoldings: false)
     }
 }
