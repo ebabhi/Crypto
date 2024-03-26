@@ -17,7 +17,7 @@ class HomeViewModel : ObservableObject {
     
     let coinDataService : CoinDataService = CoinDataService()
     
-    private var cancellables : Set<AnyCancellable> =  Set<AnyCancellable>()
+//    private var cancellables : Set<AnyCancellable> =  Set<AnyCancellable>()
     
     
     init() {
@@ -25,13 +25,15 @@ class HomeViewModel : ObservableObject {
     }
     
     func getCoins() {
-        coinDataService.getAllCoins()
-        coinDataService.$allCoins
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] allCoins in
-                self?.allCoins = allCoins
+        coinDataService.getAllCoins{ [weak self] result in
+            switch result {
+            case .success(let coins):
+                self?.allCoins = coins
+                break
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-            .store(in: &cancellables)
+        }
     }
     
 }

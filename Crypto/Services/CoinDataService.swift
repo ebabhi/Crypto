@@ -11,33 +11,22 @@ import Combine
 
 
 class CoinDataService {
-    
-    @Published var allCoins : [CoinModel] = []
-    
+        
     private var subscription : AnyCancellable?
     
-    func getAllCoins()  {
-        guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h") else {return}
+    func getAllCoins(completionHandler: @escaping (Result<[CoinModel],Error>)-> Void)  {
+        let url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h"
         
-        
-        subscription =  URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { (data: Data, response: URLResponse) in
-                guard let response =  response as? HTTPURLResponse,
-                    response.statusCode >= 200 && response.statusCode < 300 else {
-                    throw URLError(.badServerResponse)
-                }
-                return data
-            }
-            .decode(type: [CoinModel].self, decoder: JSONDecoder())
+        subscription =  NetworkingManager.makeApiCall([CoinModel].self,url: url)
             .sink { completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    completionHandler(.failure(error))
                 }
             } receiveValue: { [weak self] coins in
-                self?.allCoins = coins
+                completionHandler(.success(coins))
                 self?.subscription?.cancel()
             }
     }

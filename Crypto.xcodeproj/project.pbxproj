@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38072DEB2BB3191A00D29DDF /* NetwokingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38072DEA2BB3191A00D29DDF /* NetwokingManager.swift */; };
 		385369DB2BB1B9BB006D348F /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385369DA2BB1B9BB006D348F /* CoinDataService.swift */; };
 		6A5484C22BB143B100DD9C33 /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5484C12BB143B100DD9C33 /* CryptoApp.swift */; };
 		6A5484C42BB143B100DD9C33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5484C32BB143B100DD9C33 /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38072DEA2BB3191A00D29DDF /* NetwokingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetwokingManager.swift; sourceTree = "<group>"; };
 		385369DA2BB1B9BB006D348F /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		6A5484BE2BB143B100DD9C33 /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5484C12BB143B100DD9C33 /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38072DE92BB3190A00D29DDF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				38072DEA2BB3191A00D29DDF /* NetwokingManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		385369D92BB1B8FE006D348F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		6A5484C02BB143B100DD9C33 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				38072DE92BB3190A00D29DDF /* Utilities */,
 				385369D92BB1B8FE006D348F /* Services */,
 				6A5484EB2BB17AC200DD9C33 /* Models */,
 				6A5484D02BB1444A00DD9C33 /* Extensions */,
@@ -250,6 +261,7 @@
 				6A5484EA2BB1788D00DD9C33 /* CircleButtonAnimationView.swift in Sources */,
 				6A5484F12BB17B5A00DD9C33 /* PreviewProvider.swift in Sources */,
 				6A5484F32BB1831100DD9C33 /* Double.swift in Sources */,
+				38072DEB2BB3191A00D29DDF /* NetwokingManager.swift in Sources */,
 				6A5484ED2BB17AD300DD9C33 /* CoinModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
