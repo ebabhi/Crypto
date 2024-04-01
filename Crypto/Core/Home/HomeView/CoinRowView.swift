@@ -15,8 +15,8 @@ struct CoinRowView: View {
     
     var body: some View {
         HStack{
-            Text("\(coin.rank)")
-            Circle().frame(width: 45)
+            Text("\(coin.rank)").frame(width: 20)
+            CacheImageView(url: coin.image).frame(width: 45)
             Text(coin.symbol.uppercased(with: .autoupdatingCurrent))
             if showHoldings {
                 Spacer()

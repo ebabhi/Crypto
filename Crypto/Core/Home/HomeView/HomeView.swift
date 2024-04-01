@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             homeHeader
-            
+            searchBar
             if showPortfolio {
                 portfolioCoins
             }else{
@@ -53,9 +53,13 @@ struct HomeView: View {
         .padding(.horizontal)
     }
     
+    var searchBar : some View {
+        SearchBarView(text: $homeViewModel.searchText)
+    }
+    
     var allCoins  : some View {
         List {
-            ForEach(homeViewModel.allCoins) { coin in
+            ForEach(homeViewModel.coins) { coin in
                 CoinRowView(coin: coin,showHoldings: false)
             }
         }

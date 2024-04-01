@@ -7,32 +7,159 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "03B71DC3-C0B6-466D-93FA-FBDB84C908BF"
+            uuid = "37F6360C-8031-4469-BFC4-9DE4C5BEE063"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Crypto/Services/CoinDataService.swift"
+            filePath = "Crypto/Core/Components/SearchBar/SearchBarView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "getAllCoins(completionHandler:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DE26D6C-025D-468C-9BF0-9505C4A0F3C8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getCoins()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "748390DC-1D8F-495C-B347-EF7EF6A2BE9C"
+            uuid = "48826F22-FB1B-4166-8D62-A03CEEF7CD0D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Crypto/Services/CoinDataService.swift"
+            filePath = "Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "getAllCoins(completionHandler:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "filterCoins()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "48826F22-FB1B-4166-8D62-A03CEEF7CD0D - 7f204febd7cc650b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.Array&lt;Crypto.CoinModel&gt;) -&gt; Swift.Array&lt;Crypto.CoinModel&gt; in Crypto.HomeViewModel.filterCoins() -&gt; ()"
+                  moduleName = "Crypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhi/Desktop/Crypto/Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "48826F22-FB1B-4166-8D62-A03CEEF7CD0D - 565d110258c1c769"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Crypto.CoinModel) -&gt; Swift.Bool in closure #1 (Swift.String, Swift.Array&lt;Crypto.CoinModel&gt;) -&gt; Swift.Array&lt;Crypto.CoinModel&gt; in Crypto.HomeViewModel.filterCoins() -&gt; ()"
+                  moduleName = "Crypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhi/Desktop/Crypto/Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "948">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8A02D6D-4237-42DD-BC13-E786CB0CEC33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "filterCoins()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B8A02D6D-4237-42DD-BC13-E786CB0CEC33 - 565d110258c1c769"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Crypto.CoinModel) -&gt; Swift.Bool in closure #1 (Swift.String, Swift.Array&lt;Crypto.CoinModel&gt;) -&gt; Swift.Array&lt;Crypto.CoinModel&gt; in Crypto.HomeViewModel.filterCoins() -&gt; ()"
+                  moduleName = "Crypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhi/Desktop/Crypto/Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "948">
+               </Location>
+               <Location
+                  uuid = "B8A02D6D-4237-42DD-BC13-E786CB0CEC33 - 7f204febd7cc652c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.Array&lt;Crypto.CoinModel&gt;) -&gt; Swift.Array&lt;Crypto.CoinModel&gt; in Crypto.HomeViewModel.filterCoins() -&gt; ()"
+                  moduleName = "Crypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhi/Desktop/Crypto/Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "B8A02D6D-4237-42DD-BC13-E786CB0CEC33 - 565d110258c1c788"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Crypto.CoinModel) -&gt; Swift.Bool in closure #1 (Swift.String, Swift.Array&lt;Crypto.CoinModel&gt;) -&gt; Swift.Array&lt;Crypto.CoinModel&gt; in Crypto.HomeViewModel.filterCoins() -&gt; ()"
+                  moduleName = "Crypto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhi/Desktop/Crypto/Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "948">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F02E27E-5941-4161-9087-DB0A1A44F67F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Crypto/Core/Home/HomeViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "filterCoins()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
