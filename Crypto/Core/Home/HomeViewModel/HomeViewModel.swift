@@ -22,8 +22,8 @@ class HomeViewModel : ObservableObject {
     private var cancellabels : Set<AnyCancellable> = Set<AnyCancellable>();
     
     init() {
-        getCoins()
-        filterCoins()
+//        getCoins()
+//        filterCoins()
     }
     
     func getCoins() {

@@ -25,6 +25,16 @@ struct DeveloperPreview {
     
     let homeViewModel = HomeViewModel()
     
+    
+    
+    let statisticModels = [
+        StatisticModel(title: "Market Cap", value: "$13B", percentageChange: 25.34),
+        StatisticModel(title: "Total Vol", value: "$1.2Tr", percentageChange: nil),
+        StatisticModel(title: "Domination", value: "BTC", percentageChange: nil),
+        StatisticModel(title: "Test", value: "$1.2Tr", percentageChange: nil)
+    ]
+    
+    
     let coin  =  CoinModel(
         id: "bitcoin",
         symbol: "btc",
