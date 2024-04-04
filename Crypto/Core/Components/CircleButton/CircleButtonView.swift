@@ -24,7 +24,7 @@ struct CircleButtonView: View {
                 color: Color.theme.accent.opacity(0.25),
                 radius: 10, x: 0, y: 0)
             .padding(.horizontal)
-            .padding(.vertical,12)
+            .padding(.vertical,18)
     }
 }
 

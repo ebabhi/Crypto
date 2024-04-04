@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @State  var showPortfolio : Bool = false
+    @State  var showPortfolioView : Bool = false
     
     @EnvironmentObject var homeViewModel : HomeViewModel
     
@@ -36,6 +37,11 @@ struct HomeView: View {
                     CircleButtonAnimationView(animate: $showPortfolio)
                 )
                 .animation(.none,value:showPortfolio)
+                .onTapGesture {
+                    if showPortfolio {
+                        showPortfolioView.toggle()
+                    }
+                }
             Spacer()
             Text(showPortfolio ? "Portfolio" : "Live Prices")
                 .font(.headline)
@@ -52,6 +58,9 @@ struct HomeView: View {
                 }
         }
         .padding(.horizontal)
+        .sheet(isPresented: $showPortfolioView){
+            PortfolioView()
+        }
     }
     
     
