@@ -56,11 +56,8 @@ struct HomeView: View {
     
     
     var stats : some View {
-        
-        let stats: [StatisticModel] = DeveloperPreview.instance.statisticModels
-        
         return HStack(alignment: .top){
-            ForEach(stats) { stat in
+            ForEach(homeViewModel.statsictis) { stat in
                 StatisticView(stat: stat)
                     .frame(width: UIScreen.main.bounds.width / 3 ,alignment: .center)
             }
