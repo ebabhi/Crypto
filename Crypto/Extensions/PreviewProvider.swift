@@ -23,7 +23,12 @@ struct DeveloperPreview {
     
     private init () {}
     
-    let homeViewModel = HomeViewModel()
+    var homeViewModel : HomeViewModel {
+       let vm =  HomeViewModel()
+        vm.coins =  [coin]
+        return vm
+    }
+    
     
     
     
