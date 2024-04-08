@@ -20,13 +20,15 @@ class HomeViewModel : ObservableObject {
     @Published private var allCoins : [CoinModel] = []
     let coinDataService : CoinDataService = CoinDataService()
     let marketDataService : MarketDataService = MarketDataService()
+    let portfolioDataService : PortfolioDataService = PortfolioDataService()
     
     private var cancellabels : Set<AnyCancellable> = Set<AnyCancellable>();
     
     init() {
-//        getCoins()
-//        filterCoins()
-//        getStaticstic()
+                getCoins()
+                filterCoins()
+                getStaticstic()
+                getPortfolio()
     }
     
     func getCoins() {
@@ -39,7 +41,6 @@ class HomeViewModel : ObservableObject {
                 print(error.localizedDescription)
             }
         }
-        
     }
     
     func filterCoins() {
@@ -58,7 +59,7 @@ class HomeViewModel : ObservableObject {
             }.store(in: &cancellabels)
     }
     
-    func getStaticstic () {
+    func getStaticstic() {
         marketDataService.getMarketData { [weak self] result in
             switch result {
             case .success(let data):
@@ -71,6 +72,28 @@ class HomeViewModel : ObservableObject {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func getPortfolio() {
+        portfolioDataService
+            .$portfolioEntity
+            .combineLatest($coins)
+            .map { entities, coins  in
+                return  coins.compactMap { coin in
+                    guard let entity = entities.first(where: {$0.id == coin.id}) else {return nil}
+                    return coin.updateHoldings(amount: entity.quantity)
+                }
+            }
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] coins in
+                self?.portfoiliCoins  = coins
+            })
+            .store(in: &cancellabels)
+    }
+    
+    
+    func updatePortfolio(_ model : CoinModel ,amount : Double) {
+        portfolioDataService.updatePortfolio(model, amount: amount)
     }
     
     private func mapMarketDataToStats(_ data : CoinMarketDataModel)-> [StatisticModel] {

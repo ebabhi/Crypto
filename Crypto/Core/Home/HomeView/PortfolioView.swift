@@ -15,6 +15,7 @@ struct PortfolioView: View {
     
     @State var quantityText : String = ""
     
+    
     var body: some View {
         NavigationStack{
             VStack {
@@ -46,13 +47,18 @@ struct PortfolioView: View {
                     DismissButton()
                 }
                 
-                if let quantity = Double(quantityText), let coin = selectedCoin , quantity != coin.currentHoldings {
+                if
+                    let quantity = Double(quantityText),
+                    let coin = selectedCoin ,
+                    quantity != coin.currentHoldings {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("Save") {
+                            homeViewModel.updatePortfolio(coin, amount: quantity)
                             withAnimation{
                                 selectedCoin = nil
                                 quantityText = ""
                             }
+                            
                         }
                     }
                 }
@@ -85,6 +91,12 @@ extension PortfolioView {
                         .onTapGesture {
                             withAnimation{
                                 selectedCoin = coin
+                            }
+                            if let
+                                currentHoldings = homeViewModel.portfoiliCoins.first(where: { $0.id == selectedCoin?.id})?.currentHoldings {
+                                quantityText = "\(currentHoldings)"
+                            }else{
+                                quantityText = ""
                             }
                         }
                 }
