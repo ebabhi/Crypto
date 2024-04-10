@@ -35,6 +35,7 @@ struct CoinRowView: View {
                 
             }
         }
+        .contentShape(Rectangle())
     }
 }
 

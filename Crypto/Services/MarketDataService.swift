@@ -12,7 +12,14 @@ class MarketDataService {
     
     var cancellable : AnyCancellable?
     
-    func getMarketData(_ handler : @escaping (Result<CoinMarketDataModel,Error>)-> Void) {
+    @Published var coinMarketData : CoinMarketDataModel?
+    
+    
+    init() {
+       getMarketData()
+    }
+    
+    func getMarketData() {
         cancellable =  NetworkingManager
             .makeApiCall(GlobalDataModel.self, url: "https://api.coingecko.com/api/v3/global")
             .sink { completion in
@@ -20,10 +27,10 @@ class MarketDataService {
                 case .finished:
                     break;
                 case .failure(let error):
-                    handler(.failure(error))
+                    print(error.localizedDescription)
                 }
             } receiveValue: { [weak self] globalData in
-                handler(.success(globalData.data))
+                self?.coinMarketData = globalData.data
                 self?.cancellable?.cancel()
             }
     }

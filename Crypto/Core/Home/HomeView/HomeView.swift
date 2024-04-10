@@ -12,20 +12,35 @@ struct HomeView: View {
     @State  var showPortfolio : Bool = false
     @State  var showPortfolioView : Bool = false
     
+    @State var coinTapped : CoinModel?
+    @State var showCoinDetail : Bool = false
+    
     @EnvironmentObject var homeViewModel : HomeViewModel
     
     var body: some View {
-        VStack {
-            homeHeader
-            stats
-            searchBar
-            if showPortfolio {
-                portfolioCoins
-            }else{
-                allCoins
+        
+        NavigationStack{
+            VStack {
+                homeHeader
+                stats
+                searchBar
+                if showPortfolio {
+                    portfolioCoins
+                }else{
+                    allCoins
+                }
+                
+                Spacer()
             }
-            
-            Spacer()
+            .navigationDestination(isPresented: $showCoinDetail) {
+                Group {
+                    if  coinTapped != nil {
+                        CoinDetailView(coin: coinTapped!)
+                    } else {
+                        EmptyView()
+                    }
+                }
+            }
         }
     }
     
@@ -82,17 +97,28 @@ struct HomeView: View {
         List {
             ForEach(homeViewModel.coins) { coin in
                 CoinRowView(coin: coin,showHoldings: false)
+                    .onTapGesture {
+                        coinTapped = coin
+                        showCoinDetail = true
+                    }
             }
         }
         .listStyle(PlainListStyle())
         .transition(.move(edge: .leading))
-       
+        .refreshable {
+            homeViewModel.getCoins()
+        }
+        
     }
     
     var portfolioCoins  : some View {
         List {
             ForEach(homeViewModel.portfoiliCoins) { coin in
                 CoinRowView(coin: coin,showHoldings: true)
+                    .onTapGesture {
+                        coinTapped = coin
+                        showCoinDetail = true
+                    }
             }
         }
         .listStyle(PlainListStyle())
