@@ -11,12 +11,20 @@ struct StatisticView: View {
     
     var stat : StatisticModel
     
+    var alignment : HorizontalAlignment
+    
     private var hasIncreased : Bool {
         stat.percentageChange! >= 0
     }
     
+    
+    init(stat: StatisticModel, alignment: HorizontalAlignment = .center) {
+        self.stat = stat
+        self.alignment = alignment
+    }
+    
     var body: some View {
-        VStack{
+        VStack(alignment: alignment ){
             Text(stat.title)
                 .font(.caption)
                 .foregroundStyle(Color.theme.secondaryText)
