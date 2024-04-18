@@ -20,40 +20,44 @@ struct CoinDetailView: View {
     
     
     var body: some View {
-        VStack(alignment:.leading){
-            Text("")
-                .frame(height: 150)
-            
-            
-            Text("Overview")
-                .foregroundStyle(Color.theme.accent)
-                .font(.title)
-                .bold()
-            
-            Divider()
-            
-            LazyVGrid(columns: columns,alignment: .leading) {
-                ForEach(coinDetailViewModel.overViewInfo) { data in
-                    StatisticView(stat: data,alignment: .leading)
-                        .padding()
+        ScrollView(.vertical,showsIndicators: false) {
+            VStack(alignment:.leading){
+                
+                ChartView(coin: coin)
+                    .frame(height: 250)
+                
+                
+                Text("Overview")
+                    .foregroundStyle(Color.theme.accent)
+                    .font(.title)
+                    .bold()
+                
+                Divider()
+                
+                LazyVGrid(columns: columns,alignment: .leading) {
+                    ForEach(coinDetailViewModel.overViewInfo) { data in
+                        StatisticView(stat: data,alignment: .leading)
+                            .padding()
+                    }
                 }
-            }
-            
-            Text("Additional")
-                .foregroundStyle(Color.theme.accent)
-                .font(.title)
-                .bold()
-            
-            Divider()
-            LazyVGrid(columns: columns,alignment: .leading) {
-                ForEach(coinDetailViewModel.additionalInfo) { data in
-                    StatisticView(stat: data,alignment: .leading)
-                        .padding()
+                
+                Text("Additional")
+                    .foregroundStyle(Color.theme.accent)
+                    .font(.title)
+                    .bold()
+                
+                Divider()
+                LazyVGrid(columns: columns,alignment: .leading) {
+                    ForEach(coinDetailViewModel.additionalInfo) { data in
+                        StatisticView(stat: data,alignment: .leading)
+                            .padding()
+                    }
                 }
             }
         }
         .padding()
         .navigationTitle(coin.name)
+        
     }
 }
 
